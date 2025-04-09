@@ -9,6 +9,6 @@ const Transacao = db.define('Transacao', {
     data: DataTypes.DATE,
 });
 
-Transacao.belongsTo(Conta);
+Transacao.belongsTo(Conta, { foreignKey: 'ContaId' });
 
 module.exports = Transacao;
