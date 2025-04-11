@@ -8,8 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     saldo: {
       type: DataTypes.FLOAT,
-      allowNull: false,
-      defaultValue: 0.0
+      allowNull: false
     },
     usuarioCpf: {
       type: DataTypes.STRING,
@@ -23,9 +22,16 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'Contas'
   });
 
-  Conta.associate = function (models) {
-    Conta.belongsTo(models.Usuario, { foreignKey: 'usuarioCpf' });
-    Conta.belongsTo(models.Instituicao, { foreignKey: 'instituicaoId' });
+  Conta.associate = function(models) {
+    Conta.belongsTo(models.Usuario, {
+      foreignKey: 'usuarioCpf',
+      as: 'Usuario'
+    });
+
+    Conta.belongsTo(models.Instituicao, {
+      foreignKey: 'instituicaoId',
+      as: 'Instituicao'
+    });
   };
 
   return Conta;

@@ -21,7 +21,6 @@ router.post('/contas', async (req, res) => {
             return res.status(404).json({ mensagem: "Instituição não encontrada" });
         }
 
-        // Verifica se o usuário já tem conta nessa instituição
         const contaExistente = await Conta.findOne({
             where: {
                 usuarioCpf: cpf,

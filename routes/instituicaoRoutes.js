@@ -22,5 +22,17 @@ router.post('/', async (req, res) => {
     res.status(500).json({ erro: error.message });
   }
 });
+router.get('/', async (req, res) => {
+    try {
+      const instituicoes = await Instituicao.findAll({
+        attributes: ['id', 'nome'],
+        order: [['id', 'ASC']]
+      });
+  
+      res.status(200).json(instituicoes);
+    } catch (error) {
+      res.status(500).json({ erro: error.message });
+    }
+  });
 
 module.exports = router;
