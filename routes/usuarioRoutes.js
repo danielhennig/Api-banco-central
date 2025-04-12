@@ -56,6 +56,34 @@ router.get('/com-contas', async (req, res) => {
     }
 });
 
+// GET /usuarios/:cpf/saldo
+router.get('/saldo', async (req, res) => {
+    try {
+        const { cpf } = req.body;
+
+        const usuario = await Usuario.findByPk(cpf, {
+            include: {
+                model: Conta,
+                as: 'Contas'
+            }
+        });
+
+        if (!usuario) {
+            return res.status(404).json({ mensagem: "Usuário não encontrado" });
+        }
+
+        const saldoTotal = usuario.Contas.reduce((acc, conta) => acc + conta.saldo, 0);
+
+        res.status(200).json({
+            cpf: usuario.cpf,
+            nome: usuario.nome,
+            saldoTotal
+        });
+    } catch (error) {
+        res.status(500).json({ erro: error.message });
+    }
+});
+
 
 
 module.exports = router;
