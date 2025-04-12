@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'Contas'
   });
 
-  Conta.associate = function(models) {
+  Conta.associate = function (models) {
     Conta.belongsTo(models.Usuario, {
       foreignKey: 'usuarioCpf',
       as: 'Usuario'
@@ -33,6 +33,12 @@ module.exports = (sequelize, DataTypes) => {
       as: 'Instituicao'
     });
   };
+  Conta.associate = function (models) {
+    Conta.belongsTo(models.Usuario, { foreignKey: 'usuarioCpf', as: 'Usuario' });
+    Conta.belongsTo(models.Instituicao, { foreignKey: 'instituicaoId', as: 'Instituicao' });
+    Conta.hasMany(models.Transacao, { foreignKey: 'contaId', as: 'Transacoes' }); // ← aqui!
+  };
+
 
   return Conta;
 };

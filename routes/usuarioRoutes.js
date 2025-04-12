@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { Usuario, Conta, Instituicao } = require('../models');
+const { Usuario, Conta, Instituicao, Transacao } = require('../models');
 
 // POST /usuarios
 router.post('/', async (req, res) => {
@@ -150,8 +150,108 @@ router.delete('/', async (req, res) => {
         res.status(500).json({ erro: error.message });
     }
 });
+// GET /usuarios/:cpf/extrato
+router.get('/:cpf/extrato', async (req, res) => {
+    try {
+        const { cpf } = req.params;
 
+        const usuario = await Usuario.findByPk(cpf);
+        if (!usuario) {
+            return res.status(404).json({ mensagem: "Usuário não encontrado" });
+        }
 
+        const contas = await Conta.findAll({
+            where: { usuarioCpf: cpf },
+            include: [
+                {
+                    model: Instituicao,
+                    as: 'Instituicao',
+                    attributes: ['nome']
+                },
+                {
+                    model: Transacao,
+                    as: 'Transacoes' // vamos garantir esse alias no model
+                }
+            ]
+        });
 
+        // Montar extrato combinando transações + instituição
+        const transacoes = contas.flatMap(conta =>
+            conta.Transacoes.map(transacao => ({
+                tipo: transacao.tipo,
+                valor: transacao.valor,
+                contaId: conta.numConta,
+                instituicao: conta.Instituicao?.nome || "Desconhecida",
+                data: transacao.createdAt
+            }))
+        );
 
+        res.status(200).json({
+            cpf: usuario.cpf,
+            nome: usuario.nome,
+            transacoes
+        });
+    } catch (error) {
+        res.status(500).json({ erro: error.message });
+    }
+});
+
+router.get('/:cpf/extrato/instituicao', async (req, res) => {
+    try {
+        const { cpf } = req.params;
+        const { instituicao } = req.query;
+
+        if (!instituicao) {
+            return res.status(400).json({ mensagem: "Informe o nome da instituição na query (?instituicao=...)" });
+        }
+
+        const usuario = await Usuario.findByPk(cpf);
+        if (!usuario) {
+            return res.status(404).json({ mensagem: "Usuário não encontrado" });
+        }
+
+        const contas = await Conta.findAll({
+            where: { usuarioCpf: cpf },
+            include: [
+                {
+                    model: Instituicao,
+                    as: 'Instituicao',
+                    attributes: ['nome']
+                },
+                {
+                    model: Transacao,
+                    as: 'Transacoes'
+                }
+            ]
+        });
+
+        // Filtra pelas contas da instituição desejada
+        const contasFiltradas = contas.filter(conta =>
+            conta.Instituicao?.nome?.toLowerCase() === instituicao.toLowerCase()
+        );
+
+        if (contasFiltradas.length === 0) {
+            return res.status(404).json({ mensagem: "Nenhuma conta encontrada para essa instituição" });
+        }
+
+        const transacoes = contasFiltradas.flatMap(conta =>
+            conta.Transacoes.map(transacao => ({
+                tipo: transacao.tipo,
+                valor: transacao.valor,
+                contaId: conta.numConta,
+                instituicao: conta.Instituicao?.nome || "Desconhecida",
+                data: transacao.createdAt
+            }))
+        );
+
+        res.status(200).json({
+            cpf: usuario.cpf,
+            nome: usuario.nome,
+            instituicao,
+            transacoes
+        });
+    } catch (error) {
+        res.status(500).json({ erro: error.message });
+    }
+});
 module.exports = router;
