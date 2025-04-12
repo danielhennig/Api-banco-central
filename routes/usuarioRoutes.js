@@ -83,6 +83,74 @@ router.get('/saldo', async (req, res) => {
         res.status(500).json({ erro: error.message });
     }
 });
+//saldo por instituicao
+router.get('/saldo/instituicao', async (req, res) => {
+    try {
+        const { cpf, instituicao } = req.query;
+
+        const usuario = await Usuario.findOne({
+            where: { cpf },
+            include: {
+                model: Conta,
+                as: 'Contas',
+                include: {
+                    model: Instituicao,
+                    as: 'Instituicao',
+                    attributes: ['id', 'nome']
+                }
+            }
+        });
+
+        if (!usuario) {
+            return res.status(404).json({ mensagem: "Usuário não encontrado" });
+        }
+
+        // Se tiver ?instituicao=NomeDoBanco na query
+        if (instituicao) {
+            const contasFiltradas = usuario.Contas.filter(conta =>
+                conta.Instituicao.nome.toLowerCase() === instituicao.toLowerCase()
+            );
+
+            const saldo = contasFiltradas.reduce((acc, conta) => acc + conta.saldo, 0);
+
+            return res.status(200).json({
+                cpf: usuario.cpf,
+                nome: usuario.nome,
+                instituicao,
+                saldo
+            });
+        }
+
+        // Caso não tenha query, retorna saldo total (como antes)
+        const saldoTotal = usuario.Contas.reduce((acc, conta) => acc + conta.saldo, 0);
+
+        res.status(200).json({
+            cpf: usuario.cpf,
+            nome: usuario.nome,
+            saldoTotal
+        });
+    } catch (error) {
+        res.status(500).json({ erro: error.message });
+    }
+});
+
+router.delete('/', async (req, res) => {
+    try {
+        const { cpf } = req.body;
+
+        const usuario = await Usuario.findByPk(cpf);
+        if (!usuario) {
+            return res.status(404).json({ mensagem: "Usuário não encontrado" });
+        }
+
+        await usuario.destroy(); // Sequelize vai apagar o usuário
+
+        res.status(200).json({ mensagem: "Usuário e contas vinculadas foram deletados com sucesso" });
+    } catch (error) {
+        res.status(500).json({ erro: error.message });
+    }
+});
+
 
 
 
