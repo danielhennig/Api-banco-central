@@ -10,6 +10,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.FLOAT,
       allowNull: false
     },
+
+
+
+
+
+
     usuarioCpf: {
       type: DataTypes.STRING,
       allowNull: false
