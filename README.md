@@ -193,5 +193,21 @@ Content-Type: application/json
 
 ---
 
+---
+
+## 📖 Documentação Técnica Detalhada
+
+Se você deseja entender **como o projeto funciona por dentro**, acesse o documento abaixo com a explicação completa do código-fonte:
+
+🔗 [Clique aqui para ver a explicação completa do código](./README_Codigo_Explicado.md)
+
+Esse arquivo detalha:
+- A estrutura das pastas
+- O que cada parte do sistema faz
+- O funcionamento das rotas, controllers, models e middlewares
+- O fluxo geral da aplicação com Sequelize e Express
+
+---
+
 > Desenvolvido por Daniel Hennig | Projeto de Estágio com foco em Open Finance
 
