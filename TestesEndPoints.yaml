@@ -1,0 +1,369 @@
+type: collection.insomnia.rest/5.0
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1743027160605
+  modified: 1743027160605
+collection:
+  - name: Modulo 01
+    meta:
+      id: fld_e7f88a774c4344bab8a489b00f85bd5c
+      created: 1743079058715
+      modified: 1743079058715
+      sortKey: -1743079058715
+  - name: DevHouse
+    meta:
+      id: fld_54109d302a744fd1be5d4f641be0c1f2
+      created: 1743425558977
+      modified: 1743425571133
+      sortKey: -1743425558977
+    children:
+      - name: Session
+        meta:
+          id: fld_822fb3017e5e4adcaa4cb28585a42c85
+          created: 1743425632308
+          modified: 1743514491932
+          sortKey: -1743425632308
+      - name: House
+        meta:
+          id: fld_0d913931a7f84030bf98ef50784c50fb
+          created: 1743513945106
+          modified: 1743513945106
+          sortKey: -1743513945106
+  - name: BancoCentral
+    meta:
+      id: fld_f08e9922edb64ef4ac96550e10335035
+      created: 1744252796079
+      modified: 1744252796079
+      sortKey: -1744252796079
+    children:
+      - name: Gets
+        meta:
+          id: fld_b015690d78e74e99bdffc195d12162ac
+          created: 1744420107835
+          modified: 1744420185197
+          sortKey: -1744420108035
+        children:
+          - url: http://localhost:3000/instituicoes
+            name: Listar Bancos
+            meta:
+              id: req_929ca66ccf734db0995cd954b3c03a34
+              created: 1744334125356
+              modified: 1744420132775
+              isPrivate: false
+              sortKey: -1744420128750
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/usuarios/com-contas
+            name: Listar Usuarios e Contas
+            meta:
+              id: req_54a10905f54144d19c5dd3029996a9f5
+              created: 1744335139642
+              modified: 1744420130662
+              isPrivate: false
+              sortKey: -1744420128650
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/saldos/11111
+            name: Saldo Total
+            meta:
+              id: req_fbeb7298c8854b9fafe0b93c9afb8e09
+              created: 1744419965967
+              modified: 1744854043473
+              isPrivate: false
+              sortKey: -1744420128550
+            method: GET
+            body:
+              mimeType: application/json
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/saldos/instituicao/filtro?cpf=11111&instituicao=itau
+            name: Saldo Por Instituicao
+            meta:
+              id: req_4c0cd07c0073495f9b70638ecaf095d3
+              created: 1744420906879
+              modified: 1744854187062
+              isPrivate: false
+              sortKey: -1744420906879
+            method: GET
+            body:
+              mimeType: application/json
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/extratos/11111
+            name: Extrato Completo do Usuario
+            meta:
+              id: req_102debc2e25f4bd4b79f45f1113bb692
+              created: 1744427217671
+              modified: 1744854108799
+              isPrivate: false
+              sortKey: -1744427217671
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/extratos/11111/instituicao?instituicao=banco do
+              brasil
+            name: Extrato por Instituicao
+            meta:
+              id: req_bd0550313f90423583365779467375e0
+              created: 1744427375483
+              modified: 1744854071295
+              isPrivate: false
+              sortKey: -1744427375483
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Posts
+        meta:
+          id: fld_8c9abc36a6844036b29bce1ebc13f910
+          created: 1744420142061
+          modified: 1744420182112
+          sortKey: -1744420142062
+        children:
+          - url: http://localhost:3000/instituicoes
+            name: Criar Banco
+            meta:
+              id: req_97a90e6648bd460a93f5e44d956a7585
+              created: 1744252803530
+              modified: 1744849799966
+              isPrivate: false
+              sortKey: -1744420171555
+            method: POST
+            body:
+              mimeType: application/json
+              text: |
+                {
+                  "nome": "santander"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/usuarios
+            name: Criar Usuario
+            meta:
+              id: req_04a3821e4f7d41c4b783381599e450c8
+              created: 1744326852812
+              modified: 1744849618463
+              isPrivate: false
+              sortKey: -1744420171655
+            method: POST
+            body:
+              mimeType: application/json
+              text: |
+                {
+                  "cpf": "22222",
+                  "nome": "marcio",
+                  "email": "qualquercoisa3@gmail.com"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/contas
+            name: Vincular User - Banco
+            meta:
+              id: req_722a82f17ee74c46924cbaef2ad4f483
+              created: 1744327952368
+              modified: 1744853974697
+              isPrivate: false
+              sortKey: -1744420171755
+            method: POST
+            body:
+              mimeType: application/json
+              text: |
+                {
+                  "cpf": "11111",
+                  "instituicaoId":2,
+                  "saldo": 200
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/usuarios/transacoes
+            name: Transacoes
+            meta:
+              id: req_8a6466f657304b149286bb3220263746
+              created: 1744418167388
+              modified: 1744854014113
+              isPrivate: false
+              sortKey: -1744420171855
+            method: POST
+            body:
+              mimeType: application/json
+              text: |
+                {
+                	"cpf": "11111",
+                  "contaId": 1,
+                  "tipo": "deposito",
+                  "valor": 1857
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Deletes
+        meta:
+          id: fld_e2b62e5e001e4f0fb12e59254e11548a
+          created: 1744421910773
+          modified: 1744421910773
+          sortKey: -1744421910773
+        children:
+          - url: http://localhost:3000/usuarios
+            name: Deletando Contas(Usuario)
+            meta:
+              id: req_f8d85e894c6a476e8821bbb4d27339f9
+              created: 1744421916682
+              modified: 1744849959061
+              isPrivate: false
+              sortKey: -1744421916682
+            method: DELETE
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"cpf": "11111"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/instituicoes/1
+            name: Deletando Banco(Instituicao)
+            meta:
+              id: req_75940da11f4649fb9e80bb3a743bd63a
+              created: 1744848730851
+              modified: 1744849827705
+              isPrivate: false
+              sortKey: -1744848730851
+            method: DELETE
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1743078650291
+    modified: 1743078650291
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1743078650167
+    modified: 1743078650167
+    isPrivate: false
