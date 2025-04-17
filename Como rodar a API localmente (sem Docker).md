@@ -34,8 +34,8 @@ cd Api-banco-central22
 # 2. Instale as dependências
 npm install
 
-# 3. Configure o banco no arquivo config/config.json
-# Altere os dados de acesso conforme seu PostgreSQL local
+# 3. Configure o banco 
+   Altere os dados de acesso no arquivo config/config.json conforme seu PostgreSQL local
 
   "development": 
     "username": "seu_usuario",
