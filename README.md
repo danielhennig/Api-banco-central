@@ -94,6 +94,12 @@ Uma coleção com todos os endpoints organizados foi criada no Insomnia e está 
 
 Você terá acesso direto a todos os endpoints da API já organizados por pastas (Usuários, Contas, Transações, Extratos, Saldos, Instituições).
 
+📌 OBS: Alguns parâmetros são enviados pelo corpo da requisição (body) e outros pela URL (params ou query).
+
+- Exemplo via **body**: CPF ao cadastrar/deletar usuário (`POST /usuarios`)
+- Exemplo via **URL**: CPF em `GET /usuarios/:cpf/saldo` ou filtro por banco (`/extratos/:cpf/instituicao?instituicao=Itau`)
+
+
 ---
 
 ## 🧭 Endpoints da API (organizados por domínio)
