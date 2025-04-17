@@ -27,8 +27,7 @@ services:
       DB_HOST: db
     ports:
       - "3000:3000"
-    volumes:
-      - .:/app
+    
     command: sh -c "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && npm run dev"
 
 volumes:
