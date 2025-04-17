@@ -37,6 +37,15 @@ npm install
 # 3. Configure o banco no arquivo config/config.json
 # Altere os dados de acesso conforme seu PostgreSQL local
 
+  "development": 
+    "username": "seu_usuario",
+    "password": "sua_senha",
+    "database": "api_banco",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  
+
+
 # 4. Execute o script completo (migrations, seed e servidor)
 npm run setup
 ```
