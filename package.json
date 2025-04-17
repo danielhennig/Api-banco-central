@@ -8,5 +8,12 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "migrate": "npx sequelize-cli db:migrate",
+    "seed": "npx sequelize-cli db:seed:all",
+    "setup": "npm run migrate && npm run seed && npm run dev"
   }
 }
