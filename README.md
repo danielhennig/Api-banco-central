@@ -31,6 +31,16 @@ npm run setup
 
 ---
 
+## 🔄 Scripts rápidos (via package.json)
+
+| Comando         | Ação                                        |
+|----------------|-----------------------------------------------|
+| `npm run setup`| Migra banco, adiciona dados e inicia servidor |
+| `npm start`    | Inicia servidor normalmente                   |
+| `npm run dev`  | Inicia com nodemon (modo dev)                 |
+
+---
+
 ## 📩 Principais Endpoints
 
 ### 👤 Usuários
@@ -98,15 +108,6 @@ Content-Type: application/json
 
 ---
 
-## 🔄 Scripts rápidos (via package.json)
-
-| Comando         | Ação                                        |
-|----------------|-----------------------------------------------|
-| `npm run setup`| Migra banco, adiciona dados e inicia servidor |
-| `npm start`    | Inicia servidor normalmente                   |
-| `npm run dev`  | Inicia com nodemon (modo dev)                 |
-
----
 
 ## 🔹 Melhorias futuras
 
