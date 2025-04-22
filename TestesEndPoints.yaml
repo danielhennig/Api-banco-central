@@ -1,35 +1,10 @@
 type: collection.insomnia.rest/5.0
-name: Scratch Pad
+name: TestesEndPointsDaniel
 meta:
   id: wrk_scratchpad
   created: 1743027160605
   modified: 1743027160605
 collection:
-  - name: Modulo 01
-    meta:
-      id: fld_e7f88a774c4344bab8a489b00f85bd5c
-      created: 1743079058715
-      modified: 1743079058715
-      sortKey: -1743079058715
-  - name: DevHouse
-    meta:
-      id: fld_54109d302a744fd1be5d4f641be0c1f2
-      created: 1743425558977
-      modified: 1743425571133
-      sortKey: -1743425558977
-    children:
-      - name: Session
-        meta:
-          id: fld_822fb3017e5e4adcaa4cb28585a42c85
-          created: 1743425632308
-          modified: 1743514491932
-          sortKey: -1743425632308
-      - name: House
-        meta:
-          id: fld_0d913931a7f84030bf98ef50784c50fb
-          created: 1743513945106
-          modified: 1743513945106
-          sortKey: -1743513945106
   - name: BancoCentral
     meta:
       id: fld_f08e9922edb64ef4ac96550e10335035
