@@ -31,8 +31,8 @@ Desenvolvido como projeto de estágio com foco em aprendizado de APIs REST, arqu
 ### Passos:
 ```bash
 # Clone o projeto
-git clone https://github.com/danielhennig/Api-banco-central22
-cd Api-banco-central22
+git clone https://github.com/danielhennig/Api-banco-central
+cd Api-banco-central
 
 # Execute a aplicação (API + Banco de Dados + Migrations + Seeds)
 docker-compose up --build
@@ -56,8 +56,8 @@ docker-compose down
 ### Passos:
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/danielhennig/Api-banco-central22
-cd Api-banco-central22
+git clone https://github.com/danielhennig/Api-banco-central
+cd Api-banco-central
 
 # 2. Instale as dependências
 npm install
